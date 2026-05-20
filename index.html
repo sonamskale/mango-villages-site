@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mango Villages Gateway - Explore our portfolio of luxury nature resorts, completed residences, and ongoing real estate developments across Maharashtra.">
+    <title>Mango Villages | Premium Communities & Resorts</title>
+    <style>
+        /* --- Airy Earthy Luxury Theme --- */
+        :root {
+            --bg-body: #FDFBF7;         
+            --bg-card: #FFFFFF;         
+            --primary-green: #5A7D5A;   
+            --accent-terracotta: #BE6E54;
+            --accent-gold: #C5A059;     
+            --text-main: #2C2825;       
+            --text-muted: #6B655C;      
+            --border-light: rgba(197, 160, 89, 0.2);
+        }
+
+        /* --- Global Reset & Typography --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: var(--primary-green);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .cta-btn {
+            background-color: var(--accent-gold);
+            color: #FFFFFF;
+            padding: 0.7rem 1.8rem;
+            border: none;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-green);
+            transform: translateY(-2px);
+        }
+
+        /* --- Hero Section with Background Image --- */
+        header {
+            text-align: center;
+            /* Increased padding for better image visibility */
+            padding: 24rem 2rem 10rem;
+            
+            /* Add your image path here. The linear-gradient adds a dark overlay for text readability */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('images/hero-property.jpg');
+            
+            /* Ensures image covers the whole area and stays centered */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            /* Optional: Adds a subtle parallax effect on scroll */
+            background-attachment: fixed; 
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            /* Text changed to white to contrast with background image */
+            color: #FFFFFF; 
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Adds subtle depth */
+        }
+
+        header p {
+            font-size: 1.15rem;
+            /* Text changed to light color to contrast with background image */
+            color: rgba(255, 255, 255, 0.9); 
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 300;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* --- Section Layouts --- */
+        section {
+            padding: 4rem 2rem 6rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* --- Cards with Images --- */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border-color: var(--accent-gold);
+        }
+
+        /* Image Container inside Card */
+        .card-img-container {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            border-bottom: 3px solid var(--primary-green);
+            background-color: #EFEFEF;
+        }
+
+        .resort-card .card-img-container {
+            border-bottom-color: var(--accent-terracotta);
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img-container img {
+            transform: scale(1.05);
+        }
+
+        /* Card Text Content Wrapper */
+        .card-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card-location {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-terracotta);
+            font-weight: 600;
+        }
+
+        .card-type {
+            font-size: 0.75rem;
+            background-color: var(--bg-body);
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            color: var(--text-muted);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .card h3 {
+            color: var(--text-main);
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .card-link {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .card-link::after {
+            content: '→';
+            font-size: 1.1rem;
+            transition: transform 0.3s;
+        }
+
+        .card-link:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* --- WhatsApp Floating Button --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: #FFFFFF;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: currentColor;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: #FFFFFF;
+            border-top: 1px solid var(--border-light);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            nav {
+                padding: 1rem 2rem;
+                flex-direction: column;
+            }
+            .nav-links {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            header {
+                padding: 8rem 2rem 6rem;
+                background-attachment: scroll; /* Disable parallax on mobile for better performance */
+            }
+            header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 1.5rem;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            .card-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Global Navigation -->
+    <nav>
+        <a href="#" class="logo">Mango Villages</a>
+        <ul class="nav-links">
+            <li><a href="#completed">Completed Projects</a></li>
+            <li><a href="#ongoing">Ongoing Projects</a></li>
+            <li><a href="#resorts">Luxury Nature Resorts</a></li>
+        </ul>
+    </nav>
+
+    <!-- Homepage Hero Section -->
+    <header>
+        <h1>Crafting Legacies, Building Trust.</h1>
+        <p>Discover the exclusive communities we have delivered and the vibrant futures we are shaping. Our portfolio spans from meticulously managed coastal retreats to sophisticated urban residences—each reflecting our unwavering commitment to quality, nature, and rich simplicity.</p>
+    </header>
+
+    <!-- Completed Projects Segment -->
+    <section id="completed">
+        <div class="section-header">
+            <h2 class="section-title">Completed Projects</h2>
+            <p class="section-subtitle">A testament to our execution and quality. View our successfully delivered communities and sold-out successes.</p>
+        </div>
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="images/mango-village-completed.jpg" alt="Mango Village Guhagar">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-location">Guhagar</span>
+                        <span class="card-type">110+ Villas</span>
+                    </div>
+                    <h3>Village 1 - Mango Village Guhagar</h3>
+                    <p>A vibrant, fully delivered coastal sanctuary featuring over 110 diverse, nature-integrated villas.</p>
+                    <div class="card-footer">
+                        <a href="https://mangovillage.in" target="_blank" class="card-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="images/shree-sadan-completed.jpg" alt="Shree Sadan">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-location">Naupada, Thane</span>
+                        <span class="card-type">8 Apartments</span>
+                    </div>
+                    <h3>Shree Sadan</h3>
+                    <p>Ultra-exclusive luxury residences featuring expansive 2,500 square foot floor plans.</p>
+                    <div class="card-footer">
+                        <span class="card-link" style="color: var(--text-muted); cursor: default;">Delivered</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="images/pranav-enclave-completed.jpg" alt="Pranav Enclave">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-location">Naupada, Thane</span>
+                        <span class="card-type">14 Apartments</span>
+                    </div>
+                    <h3>Pranav Enclave</h3>
+                    <p>An intimate residential community offering meticulously designed apartments for a refined lifestyle.</p>
+                    <div class="card-footer">
+                        <span class="card-link" style="color: var(--text-muted); cursor: default;">Delivered</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="images/harikunj-enclave-completed.jpg" alt="Harikunj Enclave">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-location">Naupada, Thane</span>
+                        <span class="card-type">30 Apartments</span>
+                    </div>
+                    <h3>Harikunj Enclave</h3>
+                    <p>A vibrant and established residential community featuring beautifully crafted apartments designed for modern living.</p>
+                    <div class="card-footer">
+                        <span class="card-link" style="color: var(--text-muted); cursor: default;">Delivered</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ongoing Projects Segment -->
+    <section id="ongoing" style="background-color: #FFFFFF;">
+        <div class="section-header">
+            <h2 class="section-title">Ongoing Projects</h2>
+            <p class="section-subtitle">Explore our active developments, currently up for sale.</p>
+        </div>
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="images/lakeview-ongoing.jpg" alt="Mango Lakeview Guhagar">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-location">Guhagar</span>
+                        <span class="card-type">24 Villas</span>
+                    </div>
+                    <h3>Village 2 - Mango Lakeview Guhagar</h3>
+                    <p>An intimate collection of 24 exclusive villas offering tranquil, waterside luxury.</p>
+                    <div class="card-footer">
+                        <a href="https://mangolakeview.in" target="_blank" class="card-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="images/lakefront-paradise-ongoing.jpg" alt="Mango Lakefront Paradise Guhagar">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-location">Guhagar</span>
+                        <span class="card-type">64 Villas</span>
+                    </div>
+                    <h3>Village 3 - Mango Lakefront Paradise Guhagar</h3>
+                    <p>A premium upcoming coastal enclave featuring 64 beautifully appointed villas with uninterrupted vistas.</p>
+                    <div class="card-footer">
+                        <a href="#" class="card-link">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="images/lakefront-mahabaleshwar-ongoing.jpg" alt="Mango Lakefront Mahabaleshwar">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-location">Mahabaleshwar</span>
+                        <span class="card-type">90 Villas</span>
+                    </div>
+                    <h3>Village 4 - Mango Lakefront Mahabaleshwar</h3>
+                    <p>A grand, high-altitude haven comprising 90 opulent villas amidst lush, misty hills.</p>
+                    <div class="card-footer">
+                        <a href="https://mangolakefront.com" target="_blank" class="card-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="images/mango-heritage-plots.jpg" alt="Mango Heritage Land Plots">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-location">Guhagar</span>
+                        <span class="card-type">Land Plots</span>
+                    </div>
+                    <h3>Mango Heritage</h3>
+                    <p>Exclusive, premium land plots offering the perfect natural canvas to build your bespoke dream home.</p>
+                    <div class="card-footer">
+                        <a href="#" class="card-link">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="images/ramchandra-enclave-ongoing.jpg" alt="Ramchandra Enclave">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-location">Mumbai</span>
+                        <span class="card-type">18 Apartments</span>
+                    </div>
+                    <h3>Ramchandra Enclave, Bhandup</h3>
+                    <p>An upcoming boutique residence offering exclusive apartments for enhanced privacy and comfort.</p>
+                    <div class="card-footer">
+                        <a href="tel:+919821047228" class="card-link">Call Now For Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Nature Resorts Segment -->
+    <section id="resorts">
+        <div class="section-header">
+            <h2 class="section-title">Luxury Nature Resorts</h2>
+            <p class="section-subtitle">To ensure our communities remain pristine, we actively manage our properties through exclusive rent-back resort operations.</p>
+        </div>
+        <div class="grid-container">
+            <div class="card resort-card">
+                <div class="card-img-container">
+                    <img src="images/village1-resort.jpg" alt="Mango Village Resort Guhagar">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-location">Guhagar</span>
+                        <span class="card-type">Active</span>
+                    </div>
+                    <h3>Mango Village Resort Guhagar</h3>
+                    <p>A fully operational, managed nature retreat offering premium hospitality and a lucrative rent-back model for our homeowners.</p>
+                    <div class="card-footer">
+                        <a href="https://mangovillageresort.com/" target="_blank" class="card-link">Visit Resort</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card resort-card">
+                <div class="card-img-container">
+                    <img src="images/village2-resort.jpg" alt="Mango Lakeview Resort Guhagar">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-location">Guhagar</span>
+                        <span class="card-type">Coming Soon</span>
+                    </div>
+                    <h3>Mango Lakeview Resort Guhagar</h3>
+                    <p>An upcoming lakeside hospitality experience designed to seamlessly maintain and monetize our future properties.</p>
+                    <div class="card-footer">
+                        <a href="#" class="card-link">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card resort-card">
+                <div class="card-img-container">
+                    <img src="images/village3-resort.jpg" alt="Mango Lakefront Paradise Resort Guhagar">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-location">Guhagar</span>
+                        <span class="card-type">Coming Soon</span>
+                    </div>
+                    <h3>Mango Lakefront Paradise Resort Guhagar</h3>
+                    <p>An upcoming coastal sanctuary that will offer world-class guest experiences and effortless property management.</p>
+                    <div class="card-footer">
+                        <a href="#" class="card-link">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card resort-card">
+                <div class="card-img-container">
+                    <img src="images/village4-resort.jpg" alt="Mango Lakefront Mahabaleshwar Resort">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-location">Mahabaleshwar</span>
+                        <span class="card-type">Coming Soon</span>
+                    </div>
+                    <h3>Mango Lakefront Mahabaleshwar Resort</h3>
+                    <p>A future high-altitude managed resort promising exceptional upkeep and steady returns amidst misty landscapes.</p>
+                    <div class="card-footer">
+                        <a href="#" class="card-link">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating CTA Button -->
+    <a href="https://wa.me/919321000130" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-2.1-3.6 2.1-3.2 7.6-14.2 2.7-5.1 1.4-9.7-.1-12.5-1.5-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Mango Villages. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
